@@ -53,13 +53,13 @@ public class Limbs : MonoBehaviour
 
     public void OnTriggerEnter(Collider aCol)
     {
-        if (aCol.name == "RealBullet Variant")
+        if (aCol.name == "RealBullet Variant(Clone)")
         {
             //Vector3 closestPoint = aCol.ClosestPointOnBounds(transform.position);
             //Quaternion rot = Quaternion.FromToRotation(Vector3.up, aCol.normal);
             //Instantiate(skinImpact, closestPoint, rot);
 
-            float damage = Random.Range(1, 15);
+            float damage = Random.Range(1000, 150000);
             TakeDamage(damage);
             //Debug.Log(damage);
         }
