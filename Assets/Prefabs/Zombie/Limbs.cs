@@ -16,7 +16,8 @@ public class Limbs : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        parent = transform.parent.GetComponent<BodyHealth>();
+
+        parent = getGrandparent(gameObject).GetComponent<BodyHealth>();
         cur_health = max_health;
         alive = true;
     }
@@ -25,6 +26,12 @@ public class Limbs : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public GameObject getGrandparent(GameObject input) {
+        if (input.transform.parent == null)
+        return input;
+        return getGrandparent(input.transform.parent.gameObject);
     }
 
 
@@ -41,25 +48,26 @@ public class Limbs : MonoBehaviour
         parent.OnChildTriggerEnter(alive, amount, legsAlive);
     }
 
-    //public void BloodSplash(Vector3 contactPoint, Quaternion rot)
-    //{
-         //   ContactPoint contact = collision.contacts[0];
-       //     Vector3 pos = contact.point;
-     //       Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+    // public void BloodSplash(Vector3 contactPoint, Quaternion rot)
+    // {
+    //        ContactPoint contact = collision.contacts[0];
+    //        Vector3 pos = contact.point;
+    //        Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
     //        Instantiate(skinImpact, pos, rot);
 
-    //}
+    // }
 
 
     public void OnTriggerEnter(Collider aCol)
     {
-        if (aCol.name == "RealBullet Variant")
+        if (aCol.name == "RealBullet Variant(Clone)")
         {
-            //Vector3 closestPoint = aCol.ClosestPointOnBounds(transform.position);
-            //Quaternion rot = Quaternion.FromToRotation(Vector3.up, aCol.normal);
-            //Instantiate(skinImpact, closestPoint, rot);
+            Vector3 closestPoint = aCol.ClosestPointOnBounds(transform.position);
+            Quaternion rot = Quaternion.FromToRotation(Vector3.up, transform.forward);
+            GameObject go = Instantiate(skinImpact, closestPoint, rot);
+            Destroy(go, .3f);
 
-            float damage = Random.Range(1, 15);
+            float damage = Random.Range(1000, 150000);
             TakeDamage(damage);
             //Debug.Log(damage);
         }

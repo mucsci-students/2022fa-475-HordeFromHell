@@ -14,6 +14,10 @@ public class BodyHealth : MonoBehaviour
     public float playerDistance;
     public float speed;
     public Vector3 playerDirection;
+    public GameObject healthbox;
+    public GameObject ammobox;
+    private float percentChanceToDropLoot =100f;
+    private float timeDelayForLoot =3f;
 
     // Start is called before the first frame update
     void Start()
@@ -34,9 +38,9 @@ public class BodyHealth : MonoBehaviour
         {
             playerDistance = Vector3.Distance(m_Camera.transform.position, gameObject.transform.position);
             playerDirection = m_Camera.transform.position - gameObject.transform.position;
-            Vector3 zeroDirection = new Vector3(m_Camera.transform.position.x - gameObject.transform.position.x, gameObject.transform.position.y, m_Camera.transform.position.z - gameObject.transform.position.z);
+            Vector3 zeroDirection = new Vector3(m_Camera.transform.position.x - gameObject.transform.position.x, 0, m_Camera.transform.position.z - gameObject.transform.position.z);
             Vector3 zeroCamera = new Vector3(m_Camera.transform.position.x, gameObject.transform.position.y, m_Camera.transform.position.z);
-            Debug.Log(playerDistance);
+            ;Debug.Log(playerDistance);
             
             if (playerDistance > 200)
             {
@@ -103,14 +107,26 @@ public class BodyHealth : MonoBehaviour
                 m_Animator.SetTrigger("death2");
 
             Rigidbody m_Rigidbody = GetComponent<Rigidbody>();
-            m_Rigidbody.constraints = RigidbodyConstraints.FreezePositionX;
-            m_Rigidbody.constraints = RigidbodyConstraints.FreezePositionY;
-            m_Rigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
+
+            Invoke("dropLoot", timeDelayForLoot);
+            Destroy(gameObject, 5f);
+
         }
         if (alive && !legsAlive)
             legsDamage();
     }
 
-
+    public void dropLoot() {
+        if (Random.Range(0f,100f)<=percentChanceToDropLoot)
+            {
+                GameObject go;
+                if (Random.Range(-10f,10f) >=0) {
+                    go = Instantiate(ammobox);
+                } else {
+                    go = Instantiate(healthbox);
+                }
+                go.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y+1, gameObject.transform.position.z);
+            }
+    }
 
 }
