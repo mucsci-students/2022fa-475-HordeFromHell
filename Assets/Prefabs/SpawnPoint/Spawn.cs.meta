@@ -3,7 +3,9 @@ guid: c28daf8bd2d068243b48490c7d79cc09
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - zombie: {fileID: 4044899952534134236, guid: 0f45ad40d8f8c58498239ec07eeb9491, type: 3}
+  - hellgate: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

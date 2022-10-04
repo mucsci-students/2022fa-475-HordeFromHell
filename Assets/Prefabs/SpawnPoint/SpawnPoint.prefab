@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c28daf8bd2d068243b48490c7d79cc09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombie: {fileID: 5819608899045181690, guid: 66682e369cc793845a922bc9e5cb5fc4, type: 3}
+  zombie: {fileID: 4933148475912956535, guid: 9a46ca273ed49a140ab94d33b3450cff, type: 3}
   hellgate: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
