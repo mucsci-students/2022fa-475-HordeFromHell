@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100;
 	public int currentHealth;
+	public Canvas deathMenuUI;
 
 	public HealthBar healthBar;
 
@@ -20,9 +22,10 @@ public class PlayerHealth : MonoBehaviour
 	{
 		currentHealth -= damage;
 
-		if(currentHealth < 0)
+		if(currentHealth <= 0)
 		{
 			currentHealth = 0;
+			deathMenuUI.GetComponent<InGameMenus>().Die();
 		}
 
 		healthBar.SetHealth(currentHealth);
