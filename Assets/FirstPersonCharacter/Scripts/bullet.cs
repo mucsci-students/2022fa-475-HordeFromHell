@@ -15,7 +15,7 @@ public class bullet : MonoBehaviour
 
     void Update()
     {
-	    if(pauseMenu.GetComponent<PauseMenu>().paused == false)
+	    if(pauseMenu.GetComponent<InGameMenus>().paused == false)
         {
             elapsedTime += Time.deltaTime;
             if (Input.GetKey(KeyCode.Mouse0) && (elapsedTime > reloadTime) && ammo > 0)
