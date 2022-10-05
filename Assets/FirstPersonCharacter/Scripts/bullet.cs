@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class bullet : MonoBehaviour
 {
@@ -11,12 +12,18 @@ public class bullet : MonoBehaviour
     public Canvas pauseMenu;
 	public float reloadTime;
     float elapsedTime = 0f;
-    public int ammo = 30;
+    public int ammo;
+
+    void Start() {
+        ammo = 30;
+    }
 
     void Update()
     {
+        
 	    if(pauseMenu.GetComponent<InGameMenus>().paused == false)
         {
+            pauseMenu.GetComponent<DisplayAmmo>().UpdateAmmo(ammo);
             elapsedTime += Time.deltaTime;
             if (Input.GetKey(KeyCode.Mouse0) && (elapsedTime > reloadTime) && ammo > 0)
             {   
