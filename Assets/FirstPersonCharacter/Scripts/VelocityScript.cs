@@ -30,6 +30,5 @@ public class VelocityScript : MonoBehaviour
 		} else if (collidedWith.tag != "Gun" && collidedWith.tag != "Player" && collidedWith.tag != "MainCamera") {
 			Destroy (gameObject);
 		}
-        Destroy (GameObject.FindWithTag("fakeBullet"));
 	}
 }

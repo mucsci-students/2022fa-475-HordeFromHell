@@ -292,6 +292,7 @@ MonoBehaviour:
   skinImpact: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc, type: 3}
   player: {fileID: 5411719151309967944, guid: eef734a306f659d40bc72c7fb76db8cc, type: 3}
   zombieHealth: 0
+  attack: 1
 --- !u!1 &764909213568328814
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,6 +422,7 @@ MonoBehaviour:
   skinImpact: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc, type: 3}
   player: {fileID: 5411719151309967944, guid: eef734a306f659d40bc72c7fb76db8cc, type: 3}
   zombieHealth: 0
+  attack: 1
 --- !u!1 &938017732241909592
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,6 +739,7 @@ MonoBehaviour:
   skinImpact: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc, type: 3}
   player: {fileID: 5411719151309967944, guid: eef734a306f659d40bc72c7fb76db8cc, type: 3}
   zombieHealth: 0
+  attack: 1
 --- !u!1 &1715067507674294922
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,6 +876,7 @@ MonoBehaviour:
   skinImpact: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc, type: 3}
   player: {fileID: 5411719151309967944, guid: eef734a306f659d40bc72c7fb76db8cc, type: 3}
   zombieHealth: 0
+  attack: 1
 --- !u!1 &2156378312581984922
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,6 +1065,7 @@ MonoBehaviour:
   skinImpact: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc, type: 3}
   player: {fileID: 5411719151309967944, guid: eef734a306f659d40bc72c7fb76db8cc, type: 3}
   zombieHealth: 0
+  attack: 1
 --- !u!1 &2816733684331205950
 GameObject:
   m_ObjectHideFlags: 0
@@ -1458,6 +1463,7 @@ MonoBehaviour:
   skinImpact: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc, type: 3}
   player: {fileID: 5411719151309967944, guid: eef734a306f659d40bc72c7fb76db8cc, type: 3}
   zombieHealth: 0
+  attack: 1
 --- !u!1 &4294032117269255868
 GameObject:
   m_ObjectHideFlags: 0
@@ -1714,7 +1720,7 @@ MonoBehaviour:
   speed: 0
   playerDirection: {x: 0, y: 0, z: 0}
   healthbox: {fileID: 2981532672605844748, guid: edeb2a1c007a75542ab7e82c2601e1e8, type: 3}
-  ammobox: {fileID: 168043611871278950, guid: 5e290ebb675d377489080f21e23366d5, type: 3}
+  ammobox: {fileID: 7969112375407105078, guid: 5e290ebb675d377489080f21e23366d5, type: 3}
   gravityScale: 10
 --- !u!1 &5048367583533904614
 GameObject:
@@ -1872,6 +1878,7 @@ MonoBehaviour:
   skinImpact: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc, type: 3}
   player: {fileID: 5411719151309967944, guid: eef734a306f659d40bc72c7fb76db8cc, type: 3}
   zombieHealth: 0
+  attack: 1
 --- !u!1 &5326651877112007179
 GameObject:
   m_ObjectHideFlags: 0
@@ -2003,6 +2010,7 @@ MonoBehaviour:
   skinImpact: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc, type: 3}
   player: {fileID: 5411719151309967944, guid: eef734a306f659d40bc72c7fb76db8cc, type: 3}
   zombieHealth: 0
+  attack: 1
 --- !u!65 &3376307403301396791
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2153,6 +2161,7 @@ MonoBehaviour:
   skinImpact: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc, type: 3}
   player: {fileID: 5411719151309967944, guid: eef734a306f659d40bc72c7fb76db8cc, type: 3}
   zombieHealth: 0
+  attack: 1
 --- !u!1 &5714467522645909542
 GameObject:
   m_ObjectHideFlags: 0
@@ -2277,6 +2286,7 @@ MonoBehaviour:
   skinImpact: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc, type: 3}
   player: {fileID: 5411719151309967944, guid: eef734a306f659d40bc72c7fb76db8cc, type: 3}
   zombieHealth: 0
+  attack: 1
 --- !u!1 &5737068642243117425
 GameObject:
   m_ObjectHideFlags: 0
@@ -2636,6 +2646,7 @@ MonoBehaviour:
   skinImpact: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc, type: 3}
   player: {fileID: 5411719151309967944, guid: eef734a306f659d40bc72c7fb76db8cc, type: 3}
   zombieHealth: 0
+  attack: 1
 --- !u!1 &6811240525528938008
 GameObject:
   m_ObjectHideFlags: 0
@@ -2842,6 +2853,7 @@ MonoBehaviour:
   skinImpact: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc, type: 3}
   player: {fileID: 5411719151309967944, guid: eef734a306f659d40bc72c7fb76db8cc, type: 3}
   zombieHealth: 0
+  attack: 1
 --- !u!1 &6985682181048064588
 GameObject:
   m_ObjectHideFlags: 0
@@ -2967,6 +2979,7 @@ MonoBehaviour:
   skinImpact: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc, type: 3}
   player: {fileID: 5411719151309967944, guid: eef734a306f659d40bc72c7fb76db8cc, type: 3}
   zombieHealth: 0
+  attack: 1
 --- !u!1 &7080282345071149471
 GameObject:
   m_ObjectHideFlags: 0
@@ -3702,6 +3715,7 @@ MonoBehaviour:
   skinImpact: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc, type: 3}
   player: {fileID: 5411719151309967944, guid: eef734a306f659d40bc72c7fb76db8cc, type: 3}
   zombieHealth: 0
+  attack: 1
 --- !u!1 &9205228272358230320
 GameObject:
   m_ObjectHideFlags: 0
