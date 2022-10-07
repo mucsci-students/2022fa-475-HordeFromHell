@@ -12,10 +12,12 @@ public class bullet : MonoBehaviour
     public Canvas pauseMenu;
 	public float reloadTime;
     float elapsedTime = 0f;
+float passedTime = 0f;
+    public float gainBullet = 0f;
     public int ammo;
 
     void Start() {
-        ammo = 30;
+        ammo = 10;
     }
 
     void Update()
@@ -25,7 +27,8 @@ public class bullet : MonoBehaviour
         {
             pauseMenu.GetComponent<DisplayAmmo>().UpdateAmmo(ammo);
             elapsedTime += Time.deltaTime;
-            if (Input.GetKey(KeyCode.Mouse0) && (elapsedTime > reloadTime) && ammo > 0)
+            passedTime  += Time.deltaTime;
+            if (Input.GetKey(KeyCode.Mouse0) && (elapsedTime > reloadTime) && (ammo > 0) )
             {   
                 ammo--;
                 GameObject bulletFake = Instantiate(looksBullet, viewEnd.transform.position, transform.rotation);
@@ -34,6 +37,19 @@ public class bullet : MonoBehaviour
                 Rigidbody b = bullet.GetComponent<Rigidbody>();
                 elapsedTime = 0f;
             }
+            if(gainBullet < passedTime) {
+                passedTime = 0f;
+                ammo++;
+            }
+        }
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.tag == "ammobox" && ammo < 200)
+        {
+            addAmmo(10);
+            Destroy(collider.gameObject);
         }
     }
 

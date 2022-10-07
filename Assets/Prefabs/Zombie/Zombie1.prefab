@@ -269,7 +269,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.07
+  m_Radius: 0.12
   m_Height: 0.2
   m_Direction: 2
   m_Center: {x: 0.6252444, y: -0.040941805, z: 1.1071185}
@@ -400,7 +400,7 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.17
-  m_Height: 0.3
+  m_Height: 1
   m_Direction: 2
   m_Center: {x: 0.00000009002529, y: 0.04509175, z: 1.3813972}
 --- !u!114 &8803279355820572096
@@ -853,7 +853,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.07
+  m_Radius: 0.12
   m_Height: 0.2
   m_Direction: 2
   m_Center: {x: -0.62524384, y: -0.040941164, z: 1.1071168}
@@ -1720,7 +1720,7 @@ MonoBehaviour:
   speed: 0
   playerDirection: {x: 0, y: 0, z: 0}
   healthbox: {fileID: 2981532672605844748, guid: edeb2a1c007a75542ab7e82c2601e1e8, type: 3}
-  ammobox: {fileID: 7969112375407105078, guid: 5e290ebb675d377489080f21e23366d5, type: 3}
+  ammobox: {fileID: 121779588063593953, guid: 36c6c8d80a1e4e041af1128b3f5151d8, type: 3}
   gravityScale: 10
 --- !u!1 &5048367583533904614
 GameObject:
