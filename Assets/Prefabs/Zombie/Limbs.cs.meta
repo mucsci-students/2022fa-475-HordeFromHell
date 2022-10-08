@@ -5,7 +5,6 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - skinImpact: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc, type: 3}
-  - player: {fileID: 5411719151309967944, guid: eef734a306f659d40bc72c7fb76db8cc, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
