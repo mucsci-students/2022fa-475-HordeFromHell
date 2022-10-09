@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
+using TMPro;
 
 public class BodyHealth : MonoBehaviour
 {
@@ -20,20 +22,18 @@ public class BodyHealth : MonoBehaviour
     private float timeDelayForLoot = 0f;
     Rigidbody m_Rigidbody;
     public float gravityScale = 10.0f;
+    public FirstPersonController FPC;
 
     // Start is called before the first frame update
     void Start()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
-
-
         m_Camera = Camera.main;
         speed = Random.Range(3, 10);
         legsDamaged = false;
         cur_health = max_health;
         alive = true;
         m_Animator = gameObject.GetComponent<Animator>();
-        
     }
 
     // Update is called once per frame
@@ -106,6 +106,19 @@ public class BodyHealth : MonoBehaviour
         cur_health -= damage;
         if (cur_health < 0 || !headAlive)
         {
+            if(!headAlive)
+            {
+                FPC.GetComponent<Score>().score += 100;
+            }
+            else
+            {
+                FPC.GetComponent<Score>().score += 50;
+            }
+
+            GameObject canvas = GameObject.Find("Canvas");
+            Transform textTr = canvas.transform.Find("ScoreText");
+            textTr.GetComponent<TextMeshProUGUI>().text = "Score: " + FPC.GetComponent<Score>().score;
+
             cur_health = 0;
             alive = false;
             int death = Random.Range(1, 3);
