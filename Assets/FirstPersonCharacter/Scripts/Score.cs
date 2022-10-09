@@ -5,4 +5,9 @@ using UnityEngine;
 public class Score : MonoBehaviour
 {
     public int score = 0;
+    
+    void Start()
+    {
+        score = 0;
+    }
 }
