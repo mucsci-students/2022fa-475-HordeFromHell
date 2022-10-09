@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
+using TMPro;
 
 public class BodyHealth : MonoBehaviour
 {
@@ -16,16 +18,17 @@ public class BodyHealth : MonoBehaviour
     public Vector3 playerDirection;
     public GameObject healthbox;
     public GameObject ammobox;
-    private float percentChanceToDropLoot =5f;
-    private float timeDelayForLoot =0f;
+    private float percentChanceToDropLoot = 20f;
+    private float timeDelayForLoot = 0f;
     Rigidbody m_Rigidbody;
     public float gravityScale = 10.0f;
+    public int score = 0;
+    public FirstPersonController FPC;
 
     // Start is called before the first frame update
     void Start()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
-
 
         m_Camera = Camera.main;
         speed = Random.Range(3, 10);
@@ -33,7 +36,6 @@ public class BodyHealth : MonoBehaviour
         cur_health = max_health;
         alive = true;
         m_Animator = gameObject.GetComponent<Animator>();
-        
     }
 
     // Update is called once per frame
@@ -60,23 +62,25 @@ public class BodyHealth : MonoBehaviour
                 transform.LookAt(zeroCamera);
                 m_Animator.SetTrigger("attack");
                 
-               move(speed*2, zeroDirection);
-               if (playerDistance < 2) {
-                move(speed /10, zeroDirection);
-               }
-            } else
+                move(speed*2, zeroDirection);
+                if (playerDistance < 2) {
+                    move(speed /10, zeroDirection);
+                }
+            }
+            else
             {
                 transform.LookAt(zeroCamera);
                 m_Animator.SetTrigger("playerNear");
-               move(speed*2, zeroDirection);
+                move(speed*2, zeroDirection);
             }
             
 
-        } else
+        }
+        else
         {
             speed = 0;
-             m_Rigidbody.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY |
-        RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
+            m_Rigidbody.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY |
+                RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
         }
 
     }
@@ -104,8 +108,21 @@ public class BodyHealth : MonoBehaviour
         if (!alive)
             return;
         cur_health -= damage;
-        if (cur_health < 0 || !headAlive)
+        if (cur_health <= 0 || !headAlive)
         {
+            if(!headAlive)
+            {
+                FPC.GetComponent<Score>().score += 100;
+            }
+            else
+            {
+                FPC.GetComponent<Score>().score += 50;
+            }
+
+            GameObject canvas = GameObject.Find("Canvas");
+            Transform textTr = canvas.transform.Find("ScoreText");
+            textTr.GetComponent<TextMeshProUGUI>().text = "Score: " + FPC.GetComponent<Score>().score;
+
             cur_health = 0;
             alive = false;
             int death = Random.Range(1, 3);
@@ -124,17 +141,18 @@ public class BodyHealth : MonoBehaviour
             legsDamage();
     }
 
-    public void dropLoot() {
+    public void dropLoot()
+    {
         if (Random.Range(0f,100f)<=percentChanceToDropLoot)
-            {
-                GameObject go;
-                if (Random.Range(-10f,10f) >=0) {
-                    go = Instantiate(ammobox);
-                } else {
-                    go = Instantiate(healthbox);
-                }
-                go.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y+1, gameObject.transform.position.z);
+        {
+            GameObject go;
+            if (Random.Range(-10f,10f) >=0) {
+                go = Instantiate(ammobox);
+            } else {
+                go = Instantiate(healthbox);
             }
+            go.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y+1, gameObject.transform.position.z);
+            Destroy(go, 20f);
+        }
     }
-
 }

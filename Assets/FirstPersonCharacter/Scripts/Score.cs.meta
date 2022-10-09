@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: 1ebb1071f1c8d204f917a47070739f00
+guid: 8f3ae1de42711b046bab1c9e0ce5ff4f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - skinImpact: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

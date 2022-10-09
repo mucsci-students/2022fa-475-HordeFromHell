@@ -8,8 +8,8 @@ public class DisplayAmmo : MonoBehaviour
 {
     public TextMeshProUGUI ammoCount;
 
-public void UpdateAmmo(int num) {
-    ammoCount.text = "Ammo: " + num;
-}
-
+    public void UpdateAmmo(int num)
+    {
+        ammoCount.text = "Ammo: " + num;
+    }
 }
