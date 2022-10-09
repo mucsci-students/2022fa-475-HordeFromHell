@@ -61,7 +61,7 @@ public class BodyHealth : MonoBehaviour
                 m_Animator.SetTrigger("attack");
                 
                move(speed*2, zeroDirection);
-               if (playerDistance < 2.3) {
+               if (playerDistance < 2) {
                 move(speed /100, zeroDirection);
                }
             } else

@@ -67,6 +67,7 @@ public class InGameMenus : MonoBehaviour
     {
         Time.timeScale = 1f;
         FPCScript.GetComponent<Score>().score = 0;
+        PlayerPrefs.SetInt("Difficulty", 0);
         SceneManager.LoadScene("Menu");
     }
 }

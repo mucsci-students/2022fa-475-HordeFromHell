@@ -16,7 +16,18 @@ public class AmmoPack : MonoBehaviour
     {
         if (collider.tag == "Player" && FPC.GetComponent<bullet>().ammo < 200)
         {
-            FPC.GetComponent<bullet>().addAmmo(15);
+            if(PlayerPrefs.GetInt("Difficulty") == 0)
+            {
+                FPC.GetComponent<bullet>().addAmmo(15);
+            }
+            else if(PlayerPrefs.GetInt("Difficulty") == 1)
+            {
+                FPC.GetComponent<bullet>().addAmmo(10);
+            }
+            else
+            {
+                FPC.GetComponent<bullet>().addAmmo(5);
+            }
             Destroy(gameObject);
         }
     }
