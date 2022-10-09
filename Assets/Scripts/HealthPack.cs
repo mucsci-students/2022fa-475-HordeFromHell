@@ -6,6 +6,11 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class HealthPack : MonoBehaviour
 {
     public FirstPersonController FPC;
+    
+    void Start()
+    {
+        FPC = FindObjectOfType<FirstPersonController>();
+    }
 
     void OnTriggerEnter(Collider collider)
     {

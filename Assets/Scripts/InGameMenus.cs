@@ -40,6 +40,7 @@ public class InGameMenus : MonoBehaviour
         deathMenuUI.SetActive(false);
         Time.timeScale = 1f;
         FPCScript.ToggleCursor(true);
+        FPCScript.GetComponent<Score>().score = 0;
         dead = false;
         SceneManager.LoadScene("Forest");
     }
@@ -65,6 +66,7 @@ public class InGameMenus : MonoBehaviour
     public void LoadMenu()
     {
         Time.timeScale = 1f;
+        FPCScript.GetComponent<Score>().score = 0;
         SceneManager.LoadScene("Menu");
     }
 }
