@@ -5,6 +5,8 @@ public class VelocityScript : MonoBehaviour
     public float speed = 10;
     public float bulletLife = 2f;
     float elapsedTime = 0f;
+    public GameObject banghit;
+    
 
     void Start()
     {
@@ -27,9 +29,12 @@ public class VelocityScript : MonoBehaviour
 		if (collidedWith.tag == gameObject.tag) {
 			Destroy (gameObject);
 			Destroy (collidedWith);
+            //GameObject bulletFake = Instantiate(banghit, gameObject.transform.position, transform.rotation);
+                //Rigidbody bf = bulletFake.GetComponent<Rigidbody>();
 		} else if (collidedWith.tag != "Gun" && collidedWith.tag != "Player" && collidedWith.tag != "MainCamera") {
-			Destroy (gameObject);
+            //GameObject bulletFake = Instantiate(banghit, gameObject.transform.position, transform.rotation);
+                //Rigidbody bf = bulletFake.GetComponent<Rigidbody>();
+                Destroy (gameObject);
 		}
-        Destroy (GameObject.FindWithTag("fakeBullet"));
 	}
 }
