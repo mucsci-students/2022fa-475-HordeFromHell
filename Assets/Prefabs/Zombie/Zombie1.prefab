@@ -2062,8 +2062,9 @@ MonoBehaviour:
   playerDistance: 0
   speed: 0
   playerDirection: {x: 0, y: 0, z: 0}
-  healthbox: {fileID: 2981532672605844748, guid: edeb2a1c007a75542ab7e82c2601e1e8, type: 3}
-  ammobox: {fileID: 168043611871278950, guid: 5e290ebb675d377489080f21e23366d5, type: 3}
+  healthbox: {fileID: 8782676970274048635, guid: edeb2a1c007a75542ab7e82c2601e1e8, type: 3}
+  ammobox: {fileID: 3846525976584348053, guid: 5e290ebb675d377489080f21e23366d5, type: 3}
+  gravityScale: 10
 --- !u!1 &5961095210605072491
 GameObject:
   m_ObjectHideFlags: 0

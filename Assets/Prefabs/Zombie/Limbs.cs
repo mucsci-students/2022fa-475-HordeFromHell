@@ -16,7 +16,6 @@ public class Limbs : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         parent = getGrandparent(gameObject).GetComponent<BodyHealth>();
         cur_health = max_health;
         alive = true;
@@ -30,7 +29,7 @@ public class Limbs : MonoBehaviour
 
     public GameObject getGrandparent(GameObject input) {
         if (input.transform.parent == null)
-        return input;
+            return input;
         return getGrandparent(input.transform.parent.gameObject);
     }
 
@@ -67,7 +66,7 @@ public class Limbs : MonoBehaviour
             GameObject go = Instantiate(skinImpact, closestPoint, rot);
             Destroy(go, .3f);
 
-            float damage = Random.Range(1000, 150000);
+            float damage = Random.Range(350, 600);
             TakeDamage(damage);
             //Debug.Log(damage);
         }

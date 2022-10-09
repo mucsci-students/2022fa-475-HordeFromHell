@@ -16,48 +16,54 @@ public class BodyHealth : MonoBehaviour
     public Vector3 playerDirection;
     public GameObject healthbox;
     public GameObject ammobox;
-    private float percentChanceToDropLoot =100f;
-    private float timeDelayForLoot =3f;
+    private float percentChanceToDropLoot = 20f;
+    private float timeDelayForLoot = 0f;
+    Rigidbody m_Rigidbody;
+    public float gravityScale = 10.0f;
 
     // Start is called before the first frame update
     void Start()
     {
+        m_Rigidbody = GetComponent<Rigidbody>();
+
+
         m_Camera = Camera.main;
         speed = Random.Range(3, 10);
         legsDamaged = false;
         cur_health = max_health;
         alive = true;
         m_Animator = gameObject.GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        Vector3 gravity = -9.81f * gravityScale * Vector3.up;
+        m_Rigidbody.AddForce(gravity, ForceMode.Acceleration);
+       
         if (alive)
         {
             playerDistance = Vector3.Distance(m_Camera.transform.position, gameObject.transform.position);
             playerDirection = m_Camera.transform.position - gameObject.transform.position;
             Vector3 zeroDirection = new Vector3(m_Camera.transform.position.x - gameObject.transform.position.x, 0, m_Camera.transform.position.z - gameObject.transform.position.z);
             Vector3 zeroCamera = new Vector3(m_Camera.transform.position.x, gameObject.transform.position.y, m_Camera.transform.position.z);
-            ;Debug.Log(playerDistance);
             
-            if (playerDistance > 200)
-            {
-                transform.LookAt(zeroCamera);
-              }
-            else if (playerDistance > 40)
+            if (playerDistance > 40)
             {
                 transform.LookAt(zeroCamera);
                 m_Animator.SetTrigger("playerFar");
-
                 move(speed, zeroDirection);
             }
-            else if (playerDistance < 2)
+            else if (playerDistance < 3)
             {
                 transform.LookAt(zeroCamera);
                 m_Animator.SetTrigger("attack");
-                move(speed /20, zeroDirection);
+                
+               move(speed*2, zeroDirection);
+               if (playerDistance < 2) {
+                move(speed /10, zeroDirection);
+               }
             } else
             {
                 transform.LookAt(zeroCamera);
@@ -69,6 +75,8 @@ public class BodyHealth : MonoBehaviour
         } else
         {
             speed = 0;
+             m_Rigidbody.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY |
+        RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
         }
 
     }
@@ -100,11 +108,11 @@ public class BodyHealth : MonoBehaviour
         {
             cur_health = 0;
             alive = false;
-            int death = Random.Range(1, 2);
-            if (death == 1)
-                m_Animator.SetTrigger("death1");
-            else
+            int death = Random.Range(1, 3);
+            if (death >=2)
                 m_Animator.SetTrigger("death2");
+            else
+                m_Animator.SetTrigger("death1");
 
             Rigidbody m_Rigidbody = GetComponent<Rigidbody>();
 
@@ -126,6 +134,7 @@ public class BodyHealth : MonoBehaviour
                     go = Instantiate(healthbox);
                 }
                 go.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y+1, gameObject.transform.position.z);
+                Destroy(go, 20f);
             }
     }
 
