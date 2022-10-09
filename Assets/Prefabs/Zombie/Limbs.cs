@@ -11,16 +11,11 @@ public class Limbs : MonoBehaviour
     public bool alive = true;
     public bool legsAlive = true;
     public GameObject skinImpact;
-    public float coolDownBetweenAttacks = 2f;
-    public GameObject player;
-    public float zombieHealth;
-    public bool attack = true;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("FPSController");
         parent = getGrandparent(gameObject).GetComponent<BodyHealth>();
         cur_health = max_health;
         alive = true;
@@ -52,12 +47,18 @@ public class Limbs : MonoBehaviour
         parent.OnChildTriggerEnter(alive, amount, legsAlive);
     }
 
+    // public void BloodSplash(Vector3 contactPoint, Quaternion rot)
+    // {
+    //        ContactPoint contact = collision.contacts[0];
+    //        Vector3 pos = contact.point;
+    //        Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+    //        Instantiate(skinImpact, pos, rot);
+
+    // }
+
 
     public void OnTriggerEnter(Collider aCol)
     {
-        if (aCol == null)
-            return;
-            
         if (aCol.name == "RealBullet Variant(Clone)")
         {
             Vector3 closestPoint = aCol.ClosestPointOnBounds(transform.position);
@@ -69,24 +70,6 @@ public class Limbs : MonoBehaviour
             TakeDamage(damage);
             //Debug.Log(damage);
         }
-        
-        zombieHealth = parent.GetComponent<BodyHealth>().cur_health;
-
-        if (zombieHealth <= 0)
-            return;
-
-         if (aCol.name == "FPSController" && attack && (gameObject.name == "Z_L_ArmPalm" || gameObject.name == "Z_R_ArmPalm"))
-            {
-            var component = player.GetComponent<PlayerHealth>();
-            component.TakeDamage(10);
-            attack = false;
-            Invoke("cooldown", coolDownBetweenAttacks);
-            }
-
-    }
-
-    void cooldown() {
-        attack = true;
     }
 
     public void Destruction()

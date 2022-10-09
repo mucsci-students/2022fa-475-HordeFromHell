@@ -182,6 +182,7 @@ GameObject:
   - component: {fileID: 5411719151318125480}
   - component: {fileID: 5411719150190830455}
   - component: {fileID: 1492528078}
+  - component: {fileID: 397720234}
   m_Layer: 0
   m_Name: FPSController
   m_TagString: Player
@@ -407,6 +408,19 @@ MonoBehaviour:
   currentHealth: 100
   deathMenuUI: {fileID: 0}
   healthBar: {fileID: 0}
+--- !u!114 &397720234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5411719151309967944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f3ae1de42711b046bab1c9e0ce5ff4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
 --- !u!1 &5411719151309967946
 GameObject:
   m_ObjectHideFlags: 0
