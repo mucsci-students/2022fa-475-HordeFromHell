@@ -17,6 +17,22 @@ public class bullet : MonoBehaviour
     public int ammo;
     public int maxAmmo = 200;
 
+    void Start()
+    {
+        if(PlayerPrefs.GetInt("Difficulty") == 0)
+        {
+            ammo = 50;
+        }
+        else if(PlayerPrefs.GetInt("Difficulty") == 1)
+        {
+            ammo = 35;
+        }
+        else
+        {
+            ammo = 20;
+        }
+    }
+
     void Update()
     {
         
