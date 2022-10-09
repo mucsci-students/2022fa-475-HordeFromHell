@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 2c22e21b0b46fe14f85093e8ae9ad54b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - realBullet: {instanceID: 0}
+  - looksBullet: {fileID: 6586834716686809489, guid: 1f069a938f099204ea0181dcb66c512c, type: 3}
+  - soundBullet: {instanceID: 0}
+  - viewEnd: {instanceID: 0}
+  - fireEnd: {instanceID: 0}
+  - pauseMenu: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
