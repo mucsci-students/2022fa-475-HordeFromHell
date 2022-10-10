@@ -1,6 +1,6 @@
 # 2022fa-475-HordeFromHell
 
-Important things to know!
+Important things to know
 - Zombies have a chance to drop either a health pack (red) or an ammo crate (green)
 - Increase difficulty decreases amount of ammo, ammo and health received from packs, and increased zombie spawns
 - In the game controls menu, we forgot the escape key is a pause menu
